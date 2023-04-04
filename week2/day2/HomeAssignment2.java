@@ -1,0 +1,57 @@
+package week2.day2;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HomeAssignment2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ChromeDriver driver=new ChromeDriver();
+		// Launch the URL
+		driver.get("http://leaftaps.com/opentaps/control/main");
+		// maximize the window
+		driver.manage().window().maximize();
+
+		driver.findElement(By.id("username")).sendKeys("DemoCsr");
+
+		/*driver.findElement(By.id("password")).sendKeys("Leaf@123");*/
+
+
+		WebElement Password = driver.findElement(By.id("password"));
+		Password.sendKeys("crmsfa");
+
+		driver.findElement(By.className("decorativeSubmit")).click();
+		
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		
+		driver.findElement(By.linkText("Leads")).click();
+		
+		driver.findElement(By.linkText("Create Lead")).click();
+		
+        driver.findElement(By.id("createLeadForm_companyName")).sendKeys("TATA GROUP");
+		
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("PRAKASH");
+		
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("C");
+		
+		driver.findElement(By.name("submitButton")).click();
+		
+		driver.findElement(By.linkText("Edit")).click();
+		
+		WebElement company = driver.findElement(By.id("updateLeadForm_companyName"));
+		company.clear();
+		company.sendKeys("TATA MOTORS");
+		
+		driver.findElement(By.name("submitButton")).click();
+		
+		
+		
+		// close the window
+				driver.close();
+	
+		
+	}
+
+}
